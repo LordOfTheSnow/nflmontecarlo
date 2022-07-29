@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  redis:
+    image: redis/redis-stack:6.2.2-v5
+    volumes:
+      - redis_data:/data:rw
+    ports:
+      - 6379:6379
+      - 8001:8001
+    restart: unless-stopped
+
+volumes:
+  redis_data:
