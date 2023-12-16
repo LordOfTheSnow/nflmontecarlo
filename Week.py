@@ -44,10 +44,10 @@ class Week():
                     team = competitor["team"]
                     if competitor["homeAway"] == "home":
                         home_abbr = team["abbreviation"]
-                        home_score = competitor["score"]
+                        home_score = int(competitor["score"])
                     if competitor["homeAway"] == "away":
                         away_abbr = team["abbreviation"]
-                        away_score = competitor["score"]
+                        away_score = int(competitor["score"])
 
             game = Game(week=week, uid=uid, 
                         home_abbr=home_abbr, 
