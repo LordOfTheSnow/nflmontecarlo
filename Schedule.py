@@ -10,7 +10,7 @@ class Schedule():
         self.weeks = []
 
         # regular season has 18 weeks
-        for i in range(1,3):
+        for i in range(1,19):
             week = Week(self.year, i)
             key = "week" + str(i)
             value = week.readData()

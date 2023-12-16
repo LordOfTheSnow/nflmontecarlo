@@ -1,6 +1,7 @@
 class Game(object):
     """represents a single game"""
-    def __init__(self, uid, home_abbr, away_abbr, home_score, away_score, date, venue_fullName=""):
+    def __init__(self, week, uid, home_abbr, away_abbr, home_score, away_score, date, venue_fullName=""):
+        self.week = week
         self.uid = uid
         self.home_abbr = home_abbr
         self.away_abbr = away_abbr
@@ -10,5 +11,5 @@ class Game(object):
         self.venue_fullName = venue_fullName
 
     def debug(self):
-        output = f'{self.date}: uid: {self.uid} {self.home_abbr} - {self.away_abbr} @ {self.venue_fullName}: {self.home_score}-{self.away_score}'
+        output = f'Week {self.week} - {self.date}: {self.home_abbr} - {self.away_abbr} @ {self.venue_fullName}: {self.home_score}-{self.away_score}'
         return output
