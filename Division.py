@@ -6,3 +6,6 @@ class Division(object):
 
     def addTeam(self, team):
         self.teams.append(team)
+
+    def debug(self):
+        print(self.__dict__)
