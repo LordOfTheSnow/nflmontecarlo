@@ -19,5 +19,12 @@ class Team(object):
         self.points_for = 0
         self.points_against = 0
 
+        self.pct = 0.0
+        self.strength = 1.0
+
     def debug(self):
         print(self.__dict__)
+
+    def calculateStats(self):
+        if (self.wins + self.losses + self.ties) > 0:
+            self.pct = (self.wins + self.ties * 0.5) / (self.wins + self.losses + self.ties)
