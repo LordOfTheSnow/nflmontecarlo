@@ -39,7 +39,7 @@ def main():
     teams["LAR"] = Team(name="Rams", displayName="Los Angeles Rams", abbreviation="LAR", conference=2, division=8)
     teams["SF"] = Team(name="49ers", displayName="San Francisco 49ers", abbreviation="SF", conference=2, division=8)
 
-    schedule = Schedule(2023)
+    schedule = Schedule(nfl, 2023)
     schedule.readData()
 
     schedule.processGames(teams)

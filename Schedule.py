@@ -4,7 +4,8 @@ from Week import *
 class Schedule():
     """represents a whole season schedule"""
  
-    def __init__(self, year):
+    def __init__(self, league, year):
+        self.league = league
         self.year = year
   
         # create empty list of weeks
@@ -12,9 +13,10 @@ class Schedule():
 
     def readData(self):
         # regular season has 18 weeks
-        for i in range(1,4):
-            week = Week(self.year, i)
+        for i in range(1,17):
+            week = Week(self.league.getName(), self.year, i)
             week.readData()
+            week.writeData(self.league.getName(), self.year, i)
             self.weeks.append(week)
         
         return

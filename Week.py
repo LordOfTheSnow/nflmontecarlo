@@ -1,3 +1,4 @@
+import os.path
 import re
 import certifi
 import urllib3, json
@@ -7,7 +8,8 @@ class Week():
     """represents a week with Games"""
     baseURL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2023&seasontype=2&week=16"
 
-    def __init__(self, year, week):
+    def __init__(self, leagueName, year, week):
+        self.leagueName = leagueName
         self.year = year
         self.week = week
 
@@ -21,15 +23,19 @@ class Week():
 
     def readData(self):
 
-        http = urllib3.PoolManager(
-            cert_reqs="CERT_REQUIRED",
-            ca_certs=certifi.where()
-        )
+        localDataFound, self.data = self.readLocalData(year=self.year, week=self.week, leagueName=self.leagueName)
+        if not localDataFound:
+            # no local data found, read data from internet
+            print(f"local file for {self.leagueName}, year {self.year}, week {self.week} not found, trying to read data from the internet...")
+            http = urllib3.PoolManager(
+                cert_reqs="CERT_REQUIRED",
+                ca_certs=certifi.where()
+            )
 
-        resp = http.request("GET", self.url)
-        data = resp.json()
+            resp = http.request("GET", self.url)
+            self.data = resp.json()
 
-        self.events = data["events"]
+        self.events = self.data["events"]
         # print(self.events)
         for event in self.events:
             week = event["week"]
@@ -70,3 +76,19 @@ class Week():
             pass
         json_str = json.dumps(obj, indent=4)
         return json_str
+    
+    def writeData(self, leagueName, year, week):
+        filename = f"./data/{leagueName}_{year:d}_{week:02d}.json"
+        with open(filename, "w") as file:
+            json.dump(self.data, file) 
+
+    def readLocalData(self, year, week, leagueName, pathprefix="./data/"):
+        filename = f"{pathprefix}{leagueName}_{year:d}_{week:02d}.json"
+        if os.path.isfile(filename):
+            # Opening JSON file
+            file = open(filename)
+            # returns JSON object as a dictionary
+            data = json.load(file)
+            return True, data
+        else:
+            return False, None

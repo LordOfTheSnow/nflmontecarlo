@@ -6,3 +6,6 @@ class League(object):
 
     def addConference(self, conference):
         self.conferences.append(conference)
+
+    def getName(self):
+        return self.name
