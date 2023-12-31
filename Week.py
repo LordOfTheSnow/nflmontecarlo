@@ -42,6 +42,9 @@ class Week():
             uid = event["uid"]
             gamedate = event["date"]
             competitions = event["competitions"]
+            status = event["status"]
+            type = status["type"]
+            completed = type["completed"]
             # print(event["id"], event["shortName"])
             for competition in competitions:
                 venue = competition["venue"]["fullName"]
@@ -61,6 +64,7 @@ class Week():
                         home_score=home_score,
                         away_score=away_score,
                         date = gamedate,
+                        completed = completed,
                         venue_fullName = venue)
             print(game.debug())
 

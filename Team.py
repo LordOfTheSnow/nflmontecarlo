@@ -20,6 +20,8 @@ class Team(object):
         self.points_against = 0
 
         self.pct = 0.0
+        self.divisionPct = 0.0
+        self.conferencePct = 0.0
         self.strength = 1.0
 
     def debug(self):
@@ -28,3 +30,10 @@ class Team(object):
     def calculateStats(self):
         if (self.wins + self.losses + self.ties) > 0:
             self.pct = (self.wins + self.ties * 0.5) / (self.wins + self.losses + self.ties)
+            self.divisionPct = (self.divisionWins + self.divisionTies * 0.5) / \
+                (self.divisionWins + self.divisionLosses + self.divisionTies)
+            self.conferencePct = (self.conferenceWins + self.conferenceTies * 0.5) / \
+                (self.conferenceWins + self.conferenceLosses + self.conferenceTies)
+
+    def getDivision(self):
+        return self.division
