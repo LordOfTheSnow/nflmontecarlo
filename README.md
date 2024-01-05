@@ -20,7 +20,8 @@ Though the NFL is a multi-billion (or even trillon) business, it seems that not 
 
 Luckily ESPN kind of fills this space by offering NFL data thru open websites/webservices that provide JSON data. I have not yet checked the legal terms for downloading and using this data, so I take no responsibilty for any legal implications when using this data. **Therefore I strongly recommend not** using any of the code that downloads data from ESPN in public/commercial projects. 
 
-## High level Milestones
+## High Level Milestones
+
 ### (work in progress) Step 1: Set up the basics
 
 * set up all the basic classes needed to hold the necessary data, such as 
