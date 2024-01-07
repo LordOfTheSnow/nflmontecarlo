@@ -69,7 +69,7 @@ class Week():
             print(game.debug())
 
             self.games.append(game)
-        # return schedule
+        return
 
 
     def toJSON(self):

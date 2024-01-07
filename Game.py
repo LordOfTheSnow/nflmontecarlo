@@ -10,6 +10,7 @@ class Game(object):
         self.date = date
         self.completed = completed
         self.venue_fullName = venue_fullName
+        self.key = home_abbr + away_abbr # set this as a key to easily find a game between to teams
 
     def debug(self):
         output = f'Week {self.week} - {self.date}: {self.home_abbr} - {self.away_abbr} @ {self.venue_fullName}: {self.home_score}-{self.away_score} | {self.completed}'

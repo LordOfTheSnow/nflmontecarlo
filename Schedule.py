@@ -8,8 +8,9 @@ class Schedule():
         self.league = league
         self.year = year
   
-        # create empty list of weeks
+        # create empty lists of weeks and games
         self.weeks = []
+        self.games = []
 
     def readData(self):
         # regular season has 18 weeks
@@ -68,8 +69,10 @@ class Schedule():
                                 hometeam.divisionTies += 1
                             if hometeam.conference == awayteam.conference:
                                 awayteam.conferenceTies += 1
-                                hometeam.conferenceTies += 1    
+                                hometeam.conferenceTies += 1
+                        
+                        self.games.append(game)
 
-        return
+        return self.games
  
 

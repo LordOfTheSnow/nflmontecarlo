@@ -31,7 +31,7 @@ def main():
 
     teams["HOU"] = Team(name="Texans", displayName="Houston Texans", abbreviation="HOU", conference=1, division=3)
     teams["TEN"] = Team(name="Titans", displayName="Tennessee Titans", abbreviation="TEN", conference=1, division=3)
-    teams["JAX"] = Team(name="Jaguars", displayName="Jacksonville Jaguars", abbreviation="HOU", conference=1, division=3)
+    teams["JAX"] = Team(name="Jaguars", displayName="Jacksonville Jaguars", abbreviation="JAX", conference=1, division=3)
     teams["IND"] = Team(name="Colts", displayName="Indianapolis Colts", abbreviation="IND", conference=1, division=3)
 
     teams["KC"] = Team(name="Chiefs", displayName="Kansas City Chiefs", abbreviation="KC", conference=1, division=4)
@@ -73,51 +73,51 @@ def main():
     schedule = Schedule(nfl, 2023)
     schedule.readData()
 
-    schedule.processGames(teams,completed=True)
+    games = schedule.processGames(teams,completed=True)
 
     for team in teams:
         teams[team].calculateStats()
 
     afcNorth.buildDivisionTable(teams)
-    afcNorth.rankDivisionTeams()
+    afcNorth.rankDivisionTeams(games)
     afcNorth.debug()
     print("")
 
     afcEast.buildDivisionTable(teams)
-    afcEast.rankDivisionTeams()
+    afcEast.rankDivisionTeams(games)
     afcEast.debug()
     print("")
 
     afcSouth.buildDivisionTable(teams)
-    afcSouth.rankDivisionTeams()
+    afcSouth.rankDivisionTeams(games)
     afcSouth.debug()
     print("")
 
     afcWest.buildDivisionTable(teams)
-    afcWest.rankDivisionTeams()
+    afcWest.rankDivisionTeams(games)
     afcWest.debug()
     print("")
 
     nfcNorth.buildDivisionTable(teams)
-    nfcNorth.rankDivisionTeams()
+    nfcNorth.rankDivisionTeams(games)
     nfcNorth.debug()
 
     print("")
 
     nfcEast.buildDivisionTable(teams)
-    nfcEast.rankDivisionTeams()
+    nfcEast.rankDivisionTeams(games)
     nfcEast.debug()
 
     print("")
 
     nfcSouth.buildDivisionTable(teams)
-    nfcSouth.rankDivisionTeams()
+    nfcSouth.rankDivisionTeams(games)
     nfcSouth.debug()
 
     print("")
 
     nfcWest.buildDivisionTable(teams)
-    nfcWest.rankDivisionTeams()
+    nfcWest.rankDivisionTeams(games)
     nfcWest.debug()
 
 if __name__ == '__main__':
