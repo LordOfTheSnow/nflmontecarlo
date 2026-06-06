@@ -8,9 +8,19 @@ Once the first games have been played, try to calculate team strengths and then 
 
 ## Disclaimer
 
-### Work in progress
+### Project archived (06-Jun-2026)
 
-This project is _work in progress_. It is far from being finished, in fact I have just scratched the surface of what I have planned. So do not expect a fully working piece of software here (yet).
+This project has been set into *Archive Mode*. I didn't have the time to finish it properly.
+
+**However** I am currently working on a new incarnation with the help of Amazon's *Kiro* AI and there has already been much more progress than whatever I was able to do here. It already works and predicts NFL playoff rankings quite well. The UI however needs more improvements.
+
+I will make the new project publically available here soon. 
+
+This project will remain visible here for some reference ideas.
+
+---
+---
+
 
 The releases published here are more to be seen as milestones than functional releases. Version numbers <1 indicate that I have not yet achieved what I want.
 
